@@ -16,6 +16,15 @@
 		DC6C0E8728953BF200255FC7 /* ListLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0E8628953BF200255FC7 /* ListLoaderTests.swift */; };
 		DC6C0E9128953BF200255FC7 /* ListLoaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0E9028953BF200255FC7 /* ListLoaderUITests.swift */; };
 		DC6C0E9328953BF200255FC7 /* ListLoaderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0E9228953BF200255FC7 /* ListLoaderUITestsLaunchTests.swift */; };
+		DC6C0EA128953CAD00255FC7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EA028953CAD00255FC7 /* Kingfisher */; };
+		DC6C0EA428953CC500255FC7 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EA328953CC500255FC7 /* Alamofire */; };
+		DC6C0EB228953DB800255FC7 /* ActivityIndicatorView in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EB128953DB800255FC7 /* ActivityIndicatorView */; };
+		DC6C0EB528953E1C00255FC7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EB428953E1C00255FC7 /* IQKeyboardManagerSwift */; };
+		DC6C0EB828953EF900255FC7 /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EB728953EF900255FC7 /* RxBlocking */; };
+		DC6C0EBA28953EF900255FC7 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EB928953EF900255FC7 /* RxCocoa */; };
+		DC6C0EBC28953EF900255FC7 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EBB28953EF900255FC7 /* RxRelay */; };
+		DC6C0EBE28953EF900255FC7 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EBD28953EF900255FC7 /* RxSwift */; };
+		DC6C0EC028953EF900255FC7 /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = DC6C0EBF28953EF900255FC7 /* RxTest */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +65,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C0EBA28953EF900255FC7 /* RxCocoa in Frameworks */,
+				DC6C0EA128953CAD00255FC7 /* Kingfisher in Frameworks */,
+				DC6C0EBC28953EF900255FC7 /* RxRelay in Frameworks */,
+				DC6C0EB528953E1C00255FC7 /* IQKeyboardManagerSwift in Frameworks */,
+				DC6C0EB228953DB800255FC7 /* ActivityIndicatorView in Frameworks */,
+				DC6C0EA428953CC500255FC7 /* Alamofire in Frameworks */,
+				DC6C0EBE28953EF900255FC7 /* RxSwift in Frameworks */,
+				DC6C0EB828953EF900255FC7 /* RxBlocking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C0EC028953EF900255FC7 /* RxTest in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +161,16 @@
 			dependencies = (
 			);
 			name = ListLoader;
+			packageProductDependencies = (
+				DC6C0EA028953CAD00255FC7 /* Kingfisher */,
+				DC6C0EA328953CC500255FC7 /* Alamofire */,
+				DC6C0EB128953DB800255FC7 /* ActivityIndicatorView */,
+				DC6C0EB428953E1C00255FC7 /* IQKeyboardManagerSwift */,
+				DC6C0EB728953EF900255FC7 /* RxBlocking */,
+				DC6C0EB928953EF900255FC7 /* RxCocoa */,
+				DC6C0EBB28953EF900255FC7 /* RxRelay */,
+				DC6C0EBD28953EF900255FC7 /* RxSwift */,
+			);
 			productName = ListLoader;
 			productReference = DC6C0E6C28953BF100255FC7 /* ListLoader.app */;
 			productType = "com.apple.product-type.application";
@@ -161,6 +189,9 @@
 				DC6C0E8428953BF200255FC7 /* PBXTargetDependency */,
 			);
 			name = ListLoaderTests;
+			packageProductDependencies = (
+				DC6C0EBF28953EF900255FC7 /* RxTest */,
+			);
 			productName = ListLoaderTests;
 			productReference = DC6C0E8228953BF200255FC7 /* ListLoaderTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -215,6 +246,13 @@
 				Base,
 			);
 			mainGroup = DC6C0E6328953BF100255FC7;
+			packageReferences = (
+				DC6C0E9F28953CAD00255FC7 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				DC6C0EA228953CC500255FC7 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DC6C0EB028953DB800255FC7 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */,
+				DC6C0EB328953E1C00255FC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = DC6C0E6D28953BF100255FC7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -606,6 +644,98 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC6C0E9F28953CAD00255FC7 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+		DC6C0EA228953CC500255FC7 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DC6C0EB028953DB800255FC7 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/exyte/ActivityIndicatorView.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		DC6C0EB328953E1C00255FC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = versionRange;
+				maximumVersion = 7.0.0;
+				minimumVersion = 6.0.0;
+			};
+		};
+		DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC6C0EA028953CAD00255FC7 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0E9F28953CAD00255FC7 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+		DC6C0EA328953CC500255FC7 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EA228953CC500255FC7 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DC6C0EB128953DB800255FC7 /* ActivityIndicatorView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB028953DB800255FC7 /* XCRemoteSwiftPackageReference "ActivityIndicatorView" */;
+			productName = ActivityIndicatorView;
+		};
+		DC6C0EB428953E1C00255FC7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB328953E1C00255FC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
+		DC6C0EB728953EF900255FC7 /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		DC6C0EB928953EF900255FC7 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		DC6C0EBB28953EF900255FC7 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		DC6C0EBD28953EF900255FC7 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		DC6C0EBF28953EF900255FC7 /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC6C0E6428953BF100255FC7 /* Project object */;
 }
