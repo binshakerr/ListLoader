@@ -72,13 +72,12 @@ final class HomeViewModel: HomeViewModelProtocol {
         imageRepository.searchImages(page: page)
             .subscribe(onNext: { [weak self] response in
                 guard let self = self else { return }
-                self.stateSubject.accept(.finished(.success))
-//                                         response.total > 0 ? .populated : .empty)
+                self.stateSubject.accept(response.total > 0 ? .populated : .empty)
                 self.images = response.hits
                 self.dataSubject.accept(response.hits)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
-                self.stateSubject.accept(.finished(.failure(error)))
+                self.stateSubject.accept(.error)
                 self.errorSubject.accept(error.localizedDescription)
             })
             .disposed(by: disposeBag)

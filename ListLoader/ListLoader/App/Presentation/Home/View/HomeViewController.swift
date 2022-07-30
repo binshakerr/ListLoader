@@ -57,7 +57,7 @@ class HomeViewController: UIViewController {
             .stateSubject
             .subscribe(onNext:  { [weak self] state in
                 guard let self = self, let state = state else { return }
-//                state == .loading ? self.startLoading() : self.stopLoading()
+                state == .loading ? self.startLoading() : self.stopLoading()
             })
             .disposed(by: disposeBag)
         

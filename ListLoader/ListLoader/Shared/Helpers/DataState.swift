@@ -9,10 +9,7 @@ import Foundation
 
 enum DataState {
     case loading
-    case finished(Outcome)
-        
-    enum Outcome {
-        case failure(Error)
-        case success
-    }
+    case error
+    case empty
+    case populated
 }
