@@ -29,6 +29,7 @@ extension Parser: ParserType {
                 let result = try decoder.decode(T.self, from: data)
                 completion(.success(result))
             } catch let error {
+                print(error)
                 completion(.failure(error))
             }
         case .failure(let error):
@@ -41,6 +42,7 @@ extension Parser: ParserType {
                 let error = NetworkError(errorResponse: errorResponse)
                 completion(.failure(error))
             } catch let error {
+                print(error)
                 completion(.failure(error))
             }
         }

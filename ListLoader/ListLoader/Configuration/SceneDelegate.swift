@@ -17,9 +17,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func startApplication(_ scene: UIWindowScene) {
-        let controller = LoginViewController()
+        let repository = ImageRepository(networkManager: NetworkManager.shared)
+        let viewModel = HomeViewModel(imageRepository: repository)
+        let controller = HomeViewController(viewModel: viewModel)
+        let navigation = UINavigationController(rootViewController: controller)
+        
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = controller
+        window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
 
