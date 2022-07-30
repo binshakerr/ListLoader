@@ -12,7 +12,7 @@ import RxCocoa
 protocol HomeViewModelInputs: AnyObject {
     func searchImages()
     func refreshContent()
-//    PublishSubject<String> { get }
+    func loadMoreImages(_ index: Int)
 }
 
 protocol HomeViewModelOutputs: AnyObject {
@@ -44,6 +44,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let stateSubject = BehaviorRelay<DataState?>(value: nil)
     let errorSubject = BehaviorRelay<String?>(value: nil)
     private var currentPage = 1
+    private var totalHits = 0
     
     //MARK: -
     private let imageRepository: ImageRepositoryType
@@ -69,7 +70,8 @@ final class HomeViewModel: HomeViewModelProtocol {
             .subscribe(onNext: { [weak self] response in
                 guard let self = self else { return }
                 self.stateSubject.accept(response.total > 0 ? .populated : .empty)
-                self.dataSubject.accept(response.hits)
+                self.dataSubject.accept(self.dataSubject.value + response.hits)
+                self.totalHits = response.totalHits
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.stateSubject.accept(.error)
@@ -83,5 +85,14 @@ final class HomeViewModel: HomeViewModelProtocol {
         stateSubject.accept(nil)
         dataSubject.accept([])
         searchImages()
+    }
+    
+    func loadMoreImages(_ index: Int) {
+        if index == dataSubject.value.count - 1 { //last item
+            if dataSubject.value.count < totalHits { // more to load
+                currentPage += 1
+                searchImages()
+            }
+        }
     }
 }

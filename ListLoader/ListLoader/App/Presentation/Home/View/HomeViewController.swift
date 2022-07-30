@@ -40,8 +40,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
+        bindInputs()
         bindOutputs()
         viewModel.searchImages()
     }
@@ -57,7 +57,6 @@ class HomeViewController: UIViewController {
     }
     
     private func bindOutputs() {
-        
         viewModel
             .outputs
             .stateSubject
@@ -88,12 +87,22 @@ class HomeViewController: UIViewController {
                     cell.image = object
                 }
                 .disposed(by: disposeBag)
-        
+    }
+    
+    private func bindInputs() {
         tableView
             .rx
             .modelSelected(Image.self)
             .subscribe(onNext:  { [weak self] model in
                 self?.showImageDetailsFor(model)
+            })
+            .disposed(by: disposeBag)
+        
+        tableView
+            .rx
+            .willDisplayCell
+            .subscribe(onNext:  { [weak self] control in
+                self?.viewModel.loadMoreImages(control.indexPath.row)
             })
             .disposed(by: disposeBag)
     }
