@@ -19,7 +19,13 @@ class HomeViewController: UIViewController {
         let table = UITableView()
         table.register(UINib(nibName: viewModel.cellIdentifier, bundle: nil), forCellReuseIdentifier: viewModel.cellIdentifier)
         table.rowHeight = 70
+        table.refreshControl = refreshControl
         return table
+    }()
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh = UIRefreshControl()
+        refresh.addTarget(self, action: #selector(self.refreshContent(_:)), for: .valueChanged)
+        return refresh
     }()
     
     //MARK: - Life cycle
@@ -37,7 +43,7 @@ class HomeViewController: UIViewController {
         
         setupUI()
         bindOutputs()
-        viewModel.searchImages(page: 1)
+        viewModel.searchImages()
     }
     
     //MARK: -
@@ -50,7 +56,7 @@ class HomeViewController: UIViewController {
         tableView.fillSafeArea()
     }
     
-    func bindOutputs() {
+    private func bindOutputs() {
         
         viewModel
             .outputs
@@ -58,6 +64,9 @@ class HomeViewController: UIViewController {
             .subscribe(onNext:  { [weak self] state in
                 guard let self = self, let state = state else { return }
                 state == .loading ? self.startLoading() : self.stopLoading()
+                if state != .loading {
+                    self.refreshControl.endRefreshing()
+                }
             })
             .disposed(by: disposeBag)
         
@@ -94,6 +103,11 @@ class HomeViewController: UIViewController {
         let viewModel = ImageDetailsViewModel(image: image)
         let controller = ImageDetailsViewController(viewModel: viewModel)
         navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    @objc
+    private func refreshContent(_ sender: AnyObject) {
+        viewModel.refreshContent()
     }
     
     

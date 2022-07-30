@@ -10,7 +10,8 @@ import RxSwift
 import RxCocoa
 
 protocol HomeViewModelInputs: AnyObject {
-    func searchImages(page: Int)
+    func searchImages()
+    func refreshContent()
 //    PublishSubject<String> { get }
 }
 
@@ -20,7 +21,6 @@ protocol HomeViewModelOutputs: AnyObject {
     var errorSubject: BehaviorRelay<String?> { get }
     var screenTitle: String { get }
     var cellIdentifier: String { get }
-    func getImageAt(_ index: Int) -> Image
 }
 
 
@@ -43,7 +43,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let dataSubject = BehaviorRelay<[Image]>(value: [])
     let stateSubject = BehaviorRelay<DataState?>(value: nil)
     let errorSubject = BehaviorRelay<String?>(value: nil)
-    private var images = [Image]()
+    private var currentPage = 1
     
     //MARK: -
     private let imageRepository: ImageRepositoryType
@@ -63,17 +63,12 @@ final class HomeViewModel: HomeViewModelProtocol {
 //            .disposed(by: disposeBag)
     }
     
-    func getImageAt(_ index: Int) -> Image {
-        return images[index]
-    }
-    
-    func searchImages(page: Int) {
+    func searchImages() {
         stateSubject.accept(.loading)
-        imageRepository.searchImages(page: page)
+        imageRepository.searchImages(page: currentPage)
             .subscribe(onNext: { [weak self] response in
                 guard let self = self else { return }
                 self.stateSubject.accept(response.total > 0 ? .populated : .empty)
-                self.images = response.hits
                 self.dataSubject.accept(response.hits)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
@@ -81,5 +76,12 @@ final class HomeViewModel: HomeViewModelProtocol {
                 self.errorSubject.accept(error.localizedDescription)
             })
             .disposed(by: disposeBag)
+    }
+    
+    func refreshContent() {
+        currentPage = 1
+        stateSubject.accept(nil)
+        dataSubject.accept([])
+        searchImages()
     }
 }
