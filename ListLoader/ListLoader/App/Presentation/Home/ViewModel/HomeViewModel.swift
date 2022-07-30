@@ -20,7 +20,7 @@ protocol HomeViewModelOutputs: AnyObject {
     var errorSubject: BehaviorRelay<String?> { get }
     var screenTitle: String { get }
     var cellIdentifier: String { get }
-    func getIDForImageAt(_ index: Int) -> Int
+    func getImageAt(_ index: Int) -> Image
 }
 
 
@@ -43,6 +43,7 @@ final class HomeViewModel: HomeViewModelProtocol {
     let dataSubject = BehaviorRelay<[Image]>(value: [])
     let stateSubject = BehaviorRelay<DataState?>(value: nil)
     let errorSubject = BehaviorRelay<String?>(value: nil)
+    private var images = [Image]()
     
     //MARK: -
     private let imageRepository: ImageRepositoryType
@@ -62,8 +63,8 @@ final class HomeViewModel: HomeViewModelProtocol {
 //            .disposed(by: disposeBag)
     }
     
-    func getIDForImageAt(_ index: Int) -> Int {
-        return 0
+    func getImageAt(_ index: Int) -> Image {
+        return images[index]
     }
     
     func searchImages(page: Int) {
@@ -73,7 +74,8 @@ final class HomeViewModel: HomeViewModelProtocol {
                 guard let self = self else { return }
                 self.stateSubject.accept(.finished(.success))
 //                                         response.total > 0 ? .populated : .empty)
-                self.dataSubject.accept(response.hits ?? [])
+                self.images = response.hits
+                self.dataSubject.accept(response.hits)
             }, onError: { [weak self] error in
                 guard let self = self else { return }
                 self.stateSubject.accept(.finished(.failure(error)))

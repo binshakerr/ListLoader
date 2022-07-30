@@ -47,7 +47,6 @@
 		DC6C0F15289549B000255FC7 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F13289549B000255FC7 /* ErrorResponse.swift */; };
 		DC6C0F1728954ACB00255FC7 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F1628954ACB00255FC7 /* Parser.swift */; };
 		DC6C0F1D28956E0B00255FC7 /* ImageDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F1B28956E0B00255FC7 /* ImageDetailsViewController.swift */; };
-		DC6C0F1E28956E0B00255FC7 /* ImageDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F1C28956E0B00255FC7 /* ImageDetailsViewController.xib */; };
 		DC6C0F2028956E2200255FC7 /* ImageDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F1F28956E2200255FC7 /* ImageDetailsViewModel.swift */; };
 		DC6C0F2228956E4900255FC7 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F2128956E4900255FC7 /* ImageService.swift */; };
 		DC6C0F2428956E5F00255FC7 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F2328956E5F00255FC7 /* ImageRepository.swift */; };
@@ -57,6 +56,10 @@
 		DC6C0F2C28957A7900255FC7 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F2B28957A7900255FC7 /* Image.swift */; };
 		DC6C0F2F2895830700255FC7 /* ImageListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F2D2895830700255FC7 /* ImageListCell.swift */; };
 		DC6C0F302895830700255FC7 /* ImageListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F2E2895830700255FC7 /* ImageListCell.xib */; };
+		DC6C0F332895C35D00255FC7 /* ImageDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F312895C35D00255FC7 /* ImageDetailsCell.swift */; };
+		DC6C0F342895C35D00255FC7 /* ImageDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F322895C35D00255FC7 /* ImageDetailsCell.xib */; };
+		DC6C0F372895C36F00255FC7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F352895C36F00255FC7 /* UserDetailsCell.swift */; };
+		DC6C0F382895C36F00255FC7 /* UserDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F362895C36F00255FC7 /* UserDetailsCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,7 +114,6 @@
 		DC6C0F13289549B000255FC7 /* ErrorResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		DC6C0F1628954ACB00255FC7 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
 		DC6C0F1B28956E0B00255FC7 /* ImageDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewController.swift; sourceTree = "<group>"; };
-		DC6C0F1C28956E0B00255FC7 /* ImageDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsViewController.xib; sourceTree = "<group>"; };
 		DC6C0F1F28956E2200255FC7 /* ImageDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsViewModel.swift; sourceTree = "<group>"; };
 		DC6C0F2128956E4900255FC7 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		DC6C0F2328956E5F00255FC7 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
@@ -121,6 +123,10 @@
 		DC6C0F2B28957A7900255FC7 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DC6C0F2D2895830700255FC7 /* ImageListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageListCell.swift; sourceTree = "<group>"; };
 		DC6C0F2E2895830700255FC7 /* ImageListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageListCell.xib; sourceTree = "<group>"; };
+		DC6C0F312895C35D00255FC7 /* ImageDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailsCell.swift; sourceTree = "<group>"; };
+		DC6C0F322895C35D00255FC7 /* ImageDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsCell.xib; sourceTree = "<group>"; };
+		DC6C0F352895C36F00255FC7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
+		DC6C0F362895C36F00255FC7 /* UserDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -435,7 +441,10 @@
 			isa = PBXGroup;
 			children = (
 				DC6C0F1B28956E0B00255FC7 /* ImageDetailsViewController.swift */,
-				DC6C0F1C28956E0B00255FC7 /* ImageDetailsViewController.xib */,
+				DC6C0F312895C35D00255FC7 /* ImageDetailsCell.swift */,
+				DC6C0F322895C35D00255FC7 /* ImageDetailsCell.xib */,
+				DC6C0F352895C36F00255FC7 /* UserDetailsCell.swift */,
+				DC6C0F362895C36F00255FC7 /* UserDetailsCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -573,11 +582,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC6C0F382895C36F00255FC7 /* UserDetailsCell.xib in Resources */,
 				DC6C0EE42895423F00255FC7 /* LoginViewController.xib in Resources */,
 				DC6C0E7C28953BF100255FC7 /* LaunchScreen.storyboard in Resources */,
 				DC6C0E7928953BF100255FC7 /* Assets.xcassets in Resources */,
 				DC6C0F302895830700255FC7 /* ImageListCell.xib in Resources */,
-				DC6C0F1E28956E0B00255FC7 /* ImageDetailsViewController.xib in Resources */,
+				DC6C0F342895C35D00255FC7 /* ImageDetailsCell.xib in Resources */,
 				DC6C0EDB289541EC00255FC7 /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,6 +616,7 @@
 				DC6C0F0A289548D900255FC7 /* NetworkLogger.swift in Sources */,
 				DC6C0F09289548D900255FC7 /* NetworkManager.swift in Sources */,
 				DC6C0F102895497A00255FC7 /* AppError.swift in Sources */,
+				DC6C0F372895C36F00255FC7 /* UserDetailsCell.swift in Sources */,
 				DC6C0F262895753D00255FC7 /* DataState.swift in Sources */,
 				DC6C0F0B289548D900255FC7 /* NetworkReachability.swift in Sources */,
 				DC6C0E7028953BF100255FC7 /* AppDelegate.swift in Sources */,
@@ -629,6 +640,7 @@
 				DC6C0F1D28956E0B00255FC7 /* ImageDetailsViewController.swift in Sources */,
 				DC6C0ECE289540C800255FC7 /* HomeViewController.swift in Sources */,
 				DC6C0F2028956E2200255FC7 /* ImageDetailsViewModel.swift in Sources */,
+				DC6C0F332895C35D00255FC7 /* ImageDetailsCell.swift in Sources */,
 				DC6C0ED3289540F400255FC7 /* HomeViewModel.swift in Sources */,
 				DC6C0F08289548D900255FC7 /* Enums.swift in Sources */,
 				DC6C0EDF2895421700255FC7 /* LoginViewModel.swift in Sources */,

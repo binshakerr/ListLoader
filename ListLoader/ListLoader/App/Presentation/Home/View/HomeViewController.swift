@@ -45,33 +45,55 @@ class HomeViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .systemBackground
         navigationItem.title = viewModel.outputs.screenTitle
+        hideBackButtonTitle()
         view.addSubview(tableView)
         tableView.fillSafeArea()
     }
     
     func bindOutputs() {
         
-        viewModel.outputs.stateSubject
+        viewModel
+            .outputs
+            .stateSubject
             .subscribe(onNext:  { [weak self] state in
                 guard let self = self, let state = state else { return }
 //                state == .loading ? self.startLoading() : self.stopLoading()
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.errorSubject
+        viewModel
+            .outputs
+            .errorSubject
             .subscribe(onNext:  { [weak self] message in
                 guard let self = self, let message = message else { return }
                 self.alertError(message: message)
             })
             .disposed(by: disposeBag)
         
-        viewModel.outputs.dataSubject
+        viewModel
+            .outputs
+            .dataSubject
             .bind(to: tableView
                 .rx
                 .items(cellIdentifier: viewModel.cellIdentifier, cellType: ImageListCell.self)) { (items, object, cell) in
                     cell.image = object
                 }
                 .disposed(by: disposeBag)
+        
+        tableView
+            .rx
+            .modelSelected(Image.self)
+            .subscribe(onNext:  { [weak self] model in
+                self?.showImageDetailsFor(model)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    
+    private func showImageDetailsFor(_ image: Image) {
+        let viewModel = ImageDetailsViewModel(image: image)
+        let controller = ImageDetailsViewController(viewModel: viewModel)
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     
