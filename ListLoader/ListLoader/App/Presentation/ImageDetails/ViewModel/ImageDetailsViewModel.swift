@@ -7,11 +7,10 @@
 
 import Foundation
 import RxSwift
-import RxCocoa
 import RxDataSources
 
 protocol ImageDetailsViewModelInputs: AnyObject {
-    
+    var image: Image { get }
 }
 
 protocol ImageDetailsViewModelOutputs: AnyObject {
@@ -59,7 +58,4 @@ final class ImageDetailsViewModel: ImageDetailsViewModelProtocol {
         "UserDetailsCell"
     }
     
-    var numberOfSections: Int {
-        2
-    }
 }

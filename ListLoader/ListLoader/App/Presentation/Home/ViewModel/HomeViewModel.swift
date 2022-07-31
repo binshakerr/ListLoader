@@ -52,16 +52,6 @@ final class HomeViewModel: HomeViewModelProtocol {
     
     init(imageRepository: ImageRepositoryType) {
         self.imageRepository = imageRepository
-        bindInputs()
-    }
-    
-    func bindInputs() {
-//        inputs
-//            .searchSubject
-//            .subscribe(onNext: { [weak self] searchTerm in
-//                //                self?.searchObjects(keyword: searchTerm)
-//            })
-//            .disposed(by: disposeBag)
     }
     
     func searchImages() {
