@@ -17,16 +17,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func startApplication(_ scene: UIWindowScene) {
-        let repository = ImageRepository(networkManager: NetworkManager.shared)
-        let viewModel = HomeViewModel(imageRepository: repository)
-        let controller = HomeViewController(viewModel: viewModel)
+        let controller = (UserDefaults.standard.bool(forKey: "loggedIn")) ? makeHomeScreen() : makeLoginScreen()
         let navigation = UINavigationController(rootViewController: controller)
-        
         window = UIWindow(windowScene: scene)
         window?.rootViewController = navigation
         window?.makeKeyAndVisible()
     }
 
+    private func makeLoginScreen() -> UIViewController {
+        let viewModel = LoginViewModel()
+        let controller = LoginViewController(viewModel: viewModel)
+        return controller
+    }
+    
+    private func makeHomeScreen() -> UIViewController {
+        let repository = ImageRepository(networkManager: NetworkManager.shared)
+        let viewModel = HomeViewModel(imageRepository: repository)
+        let controller = HomeViewController(viewModel: viewModel)
+        return controller
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
