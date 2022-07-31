@@ -32,7 +32,7 @@ final class ImageDetailsViewModel: ImageDetailsViewModelProtocol {
     
     var inputs: ImageDetailsViewModelInputs { self }
     var outputs: ImageDetailsViewModelOutputs { self }
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     var image: Image
 
     init(image: Image) {

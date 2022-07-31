@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     private func startApplication(_ scene: UIWindowScene) {
-        let controller = (UserDefaults.standard.bool(forKey: "loggedIn")) ? makeHomeScreen() : makeLoginScreen()
+        let controller = (UserDefaults.standard.bool(forKey: "LoggedIn")) ? makeHomeScreen() : makeLoginScreen()
         let navigation = UINavigationController(rootViewController: controller)
         window = UIWindow(windowScene: scene)
         window?.rootViewController = navigation
