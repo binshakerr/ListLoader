@@ -60,6 +60,10 @@
 		DC6C0F342895C35D00255FC7 /* ImageDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F322895C35D00255FC7 /* ImageDetailsCell.xib */; };
 		DC6C0F372895C36F00255FC7 /* UserDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6C0F352895C36F00255FC7 /* UserDetailsCell.swift */; };
 		DC6C0F382895C36F00255FC7 /* UserDetailsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC6C0F362895C36F00255FC7 /* UserDetailsCell.xib */; };
+		DCC6C1DB2897013500DC7276 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1DA2897013500DC7276 /* Coordinator.swift */; };
+		DCC6C1DD2897017A00DC7276 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1DC2897017A00DC7276 /* AppCoordinator.swift */; };
+		DCC6C1E0289703CB00DC7276 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1DF289703CB00DC7276 /* AuthenticationCoordinator.swift */; };
+		DCC6C1E3289703EA00DC7276 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1E2289703EA00DC7276 /* HomeCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +131,10 @@
 		DC6C0F322895C35D00255FC7 /* ImageDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageDetailsCell.xib; sourceTree = "<group>"; };
 		DC6C0F352895C36F00255FC7 /* UserDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsCell.swift; sourceTree = "<group>"; };
 		DC6C0F362895C36F00255FC7 /* UserDetailsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserDetailsCell.xib; sourceTree = "<group>"; };
+		DCC6C1DA2897013500DC7276 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		DCC6C1DC2897017A00DC7276 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		DCC6C1DF289703CB00DC7276 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
+		DCC6C1E2289703EA00DC7276 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -247,6 +255,7 @@
 			children = (
 				DC6C0E6F28953BF100255FC7 /* AppDelegate.swift */,
 				DC6C0E7128953BF100255FC7 /* SceneDelegate.swift */,
+				DCC6C1DC2897017A00DC7276 /* AppCoordinator.swift */,
 				DC6C0E7D28953BF100255FC7 /* Info.plist */,
 			);
 			path = Configuration;
@@ -294,6 +303,7 @@
 		DC6C0EC92895409E00255FC7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				DCC6C1DE289703B000DC7276 /* Coordinator */,
 				DC6C0EDD2895420200255FC7 /* ViewModel */,
 				DC6C0EDC289541FB00255FC7 /* View */,
 			);
@@ -312,6 +322,7 @@
 		DC6C0ECB289540AC00255FC7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				DCC6C1E1289703D700DC7276 /* Coordinator */,
 				DC6C0ED1289540DD00255FC7 /* View */,
 				DC6C0ED0289540D500255FC7 /* ViewModel */,
 			);
@@ -402,6 +413,7 @@
 			children = (
 				DC6C0EF52895486D00255FC7 /* NibInstantiatable.swift */,
 				DC6C0F252895753D00255FC7 /* DataState.swift */,
+				DCC6C1DA2897013500DC7276 /* Coordinator.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -455,6 +467,22 @@
 				DC6C0F1F28956E2200255FC7 /* ImageDetailsViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DCC6C1DE289703B000DC7276 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DCC6C1DF289703CB00DC7276 /* AuthenticationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		DCC6C1E1289703D700DC7276 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				DCC6C1E2289703EA00DC7276 /* HomeCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -619,10 +647,12 @@
 				DC6C0F372895C36F00255FC7 /* UserDetailsCell.swift in Sources */,
 				DC6C0F262895753D00255FC7 /* DataState.swift in Sources */,
 				DC6C0F0B289548D900255FC7 /* NetworkReachability.swift in Sources */,
+				DCC6C1E0289703CB00DC7276 /* AuthenticationCoordinator.swift in Sources */,
 				DC6C0E7028953BF100255FC7 /* AppDelegate.swift in Sources */,
 				DC6C0F0C289548D900255FC7 /* EndPoint.swift in Sources */,
 				DC6C0F15289549B000255FC7 /* ErrorResponse.swift in Sources */,
 				DC6C0F2F2895830700255FC7 /* ImageListCell.swift in Sources */,
+				DCC6C1DB2897013500DC7276 /* Coordinator.swift in Sources */,
 				DC6C0F2428956E5F00255FC7 /* ImageRepository.swift in Sources */,
 				DC6C0ED7289541C600255FC7 /* RegisterViewModel.swift in Sources */,
 				DC6C0EEE289545BA00255FC7 /* UIImageView+Extensions.swift in Sources */,
@@ -630,6 +660,7 @@
 				DC6C0E7228953BF100255FC7 /* SceneDelegate.swift in Sources */,
 				DC6C0EDA289541EC00255FC7 /* RegisterViewController.swift in Sources */,
 				DC6C0F1728954ACB00255FC7 /* Parser.swift in Sources */,
+				DCC6C1E3289703EA00DC7276 /* HomeCoordinator.swift in Sources */,
 				DC6C0EF62895486D00255FC7 /* NibInstantiatable.swift in Sources */,
 				DC6C0EEA2895458800255FC7 /* UIViewController+Extensions.swift in Sources */,
 				DC6C0F282895763600255FC7 /* UIView+AutoLayout.swift in Sources */,
@@ -639,6 +670,7 @@
 				DC6C0F2A28957A0D00255FC7 /* SearchResult.swift in Sources */,
 				DC6C0F1D28956E0B00255FC7 /* ImageDetailsViewController.swift in Sources */,
 				DC6C0ECE289540C800255FC7 /* HomeViewController.swift in Sources */,
+				DCC6C1DD2897017A00DC7276 /* AppCoordinator.swift in Sources */,
 				DC6C0F2028956E2200255FC7 /* ImageDetailsViewModel.swift in Sources */,
 				DC6C0F332895C35D00255FC7 /* ImageDetailsCell.swift in Sources */,
 				DC6C0ED3289540F400255FC7 /* HomeViewModel.swift in Sources */,

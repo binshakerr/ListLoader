@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     //MARK: - Properties
     private let viewModel: HomeViewModelProtocol
     private let disposeBag = DisposeBag()
+    private let coordinator: HomeCoordinator
     
     lazy var tableView: UITableView = {
         let table = UITableView()
@@ -29,8 +30,9 @@ class HomeViewController: UIViewController {
     }()
     
     //MARK: - Life cycle
-    init(viewModel: HomeViewModelProtocol) {
+    init(viewModel: HomeViewModelProtocol, coordinator: HomeCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -94,7 +96,7 @@ class HomeViewController: UIViewController {
             .rx
             .modelSelected(Image.self)
             .subscribe(onNext:  { [weak self] model in
-                self?.showImageDetailsFor(model)
+                self?.coordinator.showImageDetailsFor(model)
             })
             .disposed(by: disposeBag)
         
@@ -105,13 +107,6 @@ class HomeViewController: UIViewController {
                 self?.viewModel.loadMoreImages(control.indexPath.row)
             })
             .disposed(by: disposeBag)
-    }
-    
-    
-    private func showImageDetailsFor(_ image: Image) {
-        let viewModel = ImageDetailsViewModel(image: image)
-        let controller = ImageDetailsViewController(viewModel: viewModel)
-        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc

@@ -19,11 +19,13 @@ class LoginViewController: UIViewController {
     //MARK: - Properties
     private let viewModel: LoginViewModelType
     private var disposeBag = DisposeBag()
+    private let coordinator: AuthenticationCoordinator
     
     //MARK: - Lifecycle
     
-    init(viewModel: LoginViewModelType) {
+    init(viewModel: LoginViewModelType, coordinator: AuthenticationCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -83,29 +85,15 @@ class LoginViewController: UIViewController {
         
     }
     
-    private func goToRegister() {
-        let viewModel = RegisterViewModel()
-        let controller = RegisterViewController(viewModel: viewModel)
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
-    private func goToHome() {
-        let repository = ImageRepository(networkManager: NetworkManager.shared)
-        let viewModel = HomeViewModel(imageRepository: repository)
-        let controller = HomeViewController(viewModel: viewModel)
-        let navigation = UINavigationController(rootViewController: controller)
-        sceneDelegate?.window?.rootViewController = navigation
-    }
-    
     //MARK: - Actions
     @IBAction func loginButtonPressed(_ sender: Any) {
         // passed all validation, open home screen
         view.endEditing(true)
         UserDefaults.standard.set(true, forKey: "LoggedIn")
-        goToHome()
+        coordinator.goToHome()
     }
     
     @IBAction func newAccountButtonPressed(_ sender: Any) {
-        goToRegister()
+        coordinator.goToRegister()
     }
 }

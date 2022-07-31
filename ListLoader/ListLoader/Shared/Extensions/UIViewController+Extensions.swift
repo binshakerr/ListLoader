@@ -49,14 +49,4 @@ extension UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
     }
     
-    var appDelegate: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
-    }
-    
-    var sceneDelegate: SceneDelegate? {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let delegate = windowScene.delegate as? SceneDelegate else { return nil }
-        return delegate
-    }
-    
 }
