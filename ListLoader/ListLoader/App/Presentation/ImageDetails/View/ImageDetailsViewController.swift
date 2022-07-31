@@ -60,6 +60,14 @@ class ImageDetailsViewController: UIViewController {
 extension ImageDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView.bounds.height * 0.5
+        if indexPath.section == 0 {
+            return tableView.bounds.height * 0.6
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
