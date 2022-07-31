@@ -17,8 +17,9 @@ class ImageDetailsCell: UITableViewCell {
     @IBOutlet weak var tagsLabel: UILabel!
     
     //MARK: - Properties
-    var image: Image! {
+    var image: Image? {
         didSet {
+            guard let image = image else { return }
             if let url = URL(string: image.largeImageURL ?? "") {
                 mainImageView.loadDownsampledImage(url: url)
             }

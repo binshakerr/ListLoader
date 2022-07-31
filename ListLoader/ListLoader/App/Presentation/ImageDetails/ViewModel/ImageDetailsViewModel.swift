@@ -8,6 +8,7 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 protocol ImageDetailsViewModelInputs: AnyObject {
     
@@ -17,8 +18,8 @@ protocol ImageDetailsViewModelOutputs: AnyObject {
     var screenTitle: String { get }
     var imageCellIdentifier: String { get }
     var userCellIdentifier: String { get }
-    var numberOfSections: Int { get }
-    var image: Image { get }
+    var items: BehaviorSubject<[TableViewSection]> { get }
+    var dataSource: RxTableViewSectionedReloadDataSource<TableViewSection> { get }
 }
 
 
@@ -34,6 +35,13 @@ final class ImageDetailsViewModel: ImageDetailsViewModelProtocol {
     var outputs: ImageDetailsViewModelOutputs { self }
     private var disposeBag = DisposeBag()
     var image: Image
+    
+    lazy var items = BehaviorSubject<[TableViewSection]>(value: [
+        TableViewSection(items: [TableViewItem(image: image)]),
+        TableViewSection(items: [TableViewItem(image: image)])
+    ])
+    
+    let dataSource = ImageDataSource.dataSource()
 
     init(image: Image) {
         self.image = image

@@ -18,11 +18,8 @@ class ImageDetailsViewController: UIViewController {
     lazy var tableView: UITableView = {
         let table = UITableView()
         table.delegate = self
-        table.dataSource = self
         table.register(UINib(nibName: viewModel.imageCellIdentifier, bundle: nil), forCellReuseIdentifier: viewModel.imageCellIdentifier)
         table.register(UINib(nibName: viewModel.userCellIdentifier, bundle: nil), forCellReuseIdentifier: viewModel.userCellIdentifier)
-//        table.rowHeight = table.bounds.height * 0.5
-//        table.estimatedRowHeight = table
         return table
     }()
     
@@ -39,7 +36,7 @@ class ImageDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-//        bindViewModel()
+        bindViewModel()
     }
     
     private func setupUI() {
@@ -49,45 +46,20 @@ class ImageDetailsViewController: UIViewController {
         tableView.fillSafeArea()
     }
     
-//    private func bindViewModel() {
-//        viewModel
-//            .image
-//            .bind(to: tableView
-//                .rx
-//                .items(cellIdentifier: viewModel.imageCellIdentifier, cellType: ImageDetailsCell.self)) { (items, object, cell) in
-//                    cell.image = object
-//                }
-//                .disposed(by: disposeBag)
-//    }
+    private func bindViewModel() {
+        viewModel
+            .outputs
+            .items
+            .bind(to: tableView.rx.items(dataSource: viewModel.outputs.dataSource))
+            .disposed(by: disposeBag)
+    }
     
 }
 
 
-extension ImageDetailsViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.imageCellIdentifier, for: indexPath) as! ImageDetailsCell
-            cell.image = viewModel.image
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: viewModel.userCellIdentifier, for: indexPath) as! UserDetailsCell
-            cell.image = viewModel.image
-            return cell
-        }
-    }
+extension ImageDetailsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return tableView.bounds.height * 0.5
     }
-    
-    
 }

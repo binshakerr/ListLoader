@@ -64,6 +64,9 @@
 		DCC6C1DD2897017A00DC7276 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1DC2897017A00DC7276 /* AppCoordinator.swift */; };
 		DCC6C1E0289703CB00DC7276 /* AuthenticationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1DF289703CB00DC7276 /* AuthenticationCoordinator.swift */; };
 		DCC6C1E3289703EA00DC7276 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1E2289703EA00DC7276 /* HomeCoordinator.swift */; };
+		DCC6C1E628970E4800DC7276 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = DCC6C1E528970E4800DC7276 /* Differentiator */; };
+		DCC6C1E828970E4800DC7276 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = DCC6C1E728970E4800DC7276 /* RxDataSources */; };
+		DCC6C1EA28970EA100DC7276 /* ImageDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC6C1E928970EA100DC7276 /* ImageDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +138,7 @@
 		DCC6C1DC2897017A00DC7276 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		DCC6C1DF289703CB00DC7276 /* AuthenticationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationCoordinator.swift; sourceTree = "<group>"; };
 		DCC6C1E2289703EA00DC7276 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
+		DCC6C1E928970EA100DC7276 /* ImageDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +151,9 @@
 				DC6C0EF1289547B200255FC7 /* NVActivityIndicatorView in Frameworks */,
 				DC6C0EBC28953EF900255FC7 /* RxRelay in Frameworks */,
 				DC6C0EB528953E1C00255FC7 /* IQKeyboardManagerSwift in Frameworks */,
+				DCC6C1E828970E4800DC7276 /* RxDataSources in Frameworks */,
 				DC6C0EA428953CC500255FC7 /* Alamofire in Frameworks */,
+				DCC6C1E628970E4800DC7276 /* Differentiator in Frameworks */,
 				DC6C0EBE28953EF900255FC7 /* RxSwift in Frameworks */,
 				DC6C0EB828953EF900255FC7 /* RxBlocking in Frameworks */,
 				DC6C0EF3289547B200255FC7 /* NVActivityIndicatorViewExtended in Frameworks */,
@@ -465,6 +471,7 @@
 			isa = PBXGroup;
 			children = (
 				DC6C0F1F28956E2200255FC7 /* ImageDetailsViewModel.swift */,
+				DCC6C1E928970EA100DC7276 /* ImageDataSource.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -511,6 +518,8 @@
 				DC6C0EBD28953EF900255FC7 /* RxSwift */,
 				DC6C0EF0289547B200255FC7 /* NVActivityIndicatorView */,
 				DC6C0EF2289547B200255FC7 /* NVActivityIndicatorViewExtended */,
+				DCC6C1E528970E4800DC7276 /* Differentiator */,
+				DCC6C1E728970E4800DC7276 /* RxDataSources */,
 			);
 			productName = ListLoader;
 			productReference = DC6C0E6C28953BF100255FC7 /* ListLoader.app */;
@@ -593,6 +602,7 @@
 				DC6C0EB328953E1C00255FC7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				DC6C0EB628953EF900255FC7 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				DC6C0EEF289547B200255FC7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */,
+				DCC6C1E428970E4800DC7276 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = DC6C0E6D28953BF100255FC7 /* Products */;
 			projectDirPath = "";
@@ -677,6 +687,7 @@
 				DC6C0F08289548D900255FC7 /* Enums.swift in Sources */,
 				DC6C0EDF2895421700255FC7 /* LoginViewModel.swift in Sources */,
 				DC6C0F2228956E4900255FC7 /* ImageService.swift in Sources */,
+				DCC6C1EA28970EA100DC7276 /* ImageDataSource.swift in Sources */,
 				DC6C0F112895497A00255FC7 /* NetworkError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1056,6 +1067,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		DCC6C1E428970E4800DC7276 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1108,6 +1127,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DC6C0EEF289547B200255FC7 /* XCRemoteSwiftPackageReference "NVActivityIndicatorView" */;
 			productName = NVActivityIndicatorViewExtended;
+		};
+		DCC6C1E528970E4800DC7276 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCC6C1E428970E4800DC7276 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		DCC6C1E728970E4800DC7276 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DCC6C1E428970E4800DC7276 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
