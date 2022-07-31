@@ -18,11 +18,11 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     
     //MARK: - Properties
-    private let viewModel: RegisterViewModel
+    private let viewModel: RegisterViewModelType
     private var disposeBag = DisposeBag()
     
     //MARK: - Lifecycle
-    init(viewModel: RegisterViewModel) {
+    init(viewModel: RegisterViewModelType) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -34,17 +34,67 @@ class RegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindViewModel()
     }
     
     //MARK: -
     private func setupUI() {
-        navigationItem.title = "Register"
+        navigationItem.title = viewModel.screenTitle
     }
 
+    func bindViewModel() {
+        
+        emailTextField
+            .rx
+            .text
+            .orEmpty
+            .bind(to: viewModel.inputs.emailSubject)
+            .disposed(by: disposeBag)
+        
+        passwordTextField
+            .rx
+            .text
+            .orEmpty
+            .bind(to: viewModel.inputs.passwordSubject)
+            .disposed(by: disposeBag)
+        
+        ageTextField
+            .rx
+            .text
+            .orEmpty
+            .map { Int($0) ?? 0 }
+            .bind(to: viewModel.inputs.ageSubject)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .outputs
+            .isValidCredentials()
+            .bind(to: registerButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+        
+        viewModel
+            .outputs
+            .isValidCredentials()
+            .map { $0 ? 1 : 0.2 }
+            .bind(to: registerButton.rx.alpha)
+            .disposed(by: disposeBag)
+        
+    }
+    
+    private func goToHome() {
+        let repository = ImageRepository(networkManager: NetworkManager.shared)
+        let viewModel = HomeViewModel(imageRepository: repository)
+        let controller = HomeViewController(viewModel: viewModel)
+        let navigation = UINavigationController(rootViewController: controller)
+        sceneDelegate?.window?.rootViewController = navigation
+    }
     
     //MARK: - Actions
     
     @IBAction func registerButtonPressed(_ sender: Any) {
-        
+        // passed all validation, open home screen
+        view.endEditing(true)
+        UserDefaults.standard.set(true, forKey: "LoggedIn")
+        goToHome()
     }
 }

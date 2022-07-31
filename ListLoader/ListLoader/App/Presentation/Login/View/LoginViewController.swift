@@ -57,14 +57,14 @@ class LoginViewController: UIViewController {
         emailTextField
             .rx
             .text
-            .map { $0 ?? "" }
+            .orEmpty
             .bind(to: viewModel.inputs.emailSubject)
             .disposed(by: disposeBag)
         
         passwordTextField
             .rx
             .text
-            .map { $0 ?? "" }
+            .orEmpty
             .bind(to: viewModel.inputs.passwordSubject)
             .disposed(by: disposeBag)
         
